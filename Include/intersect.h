@@ -3,6 +3,7 @@
 #include "scene.h"
 #include "ray.h"
 #include <cmath>
+#include <limits>
 
 inline float dot3(const vec3 &a, const vec3 &b) {
     return a.x * b.x + a.y * b.y + a.z * b.z;
@@ -37,4 +38,5 @@ bool intersectSphere(const Sphere &s,
 // Ray-triangle intersection
 double rayTriangleIntersect(const Ray &ray, const Triangle &triangle);
 
-bool FindIntersection(const Ray &ray, HitInfo &hit);
+// UPDATED: Now takes 'scene' as an argument so we can access spheres/triangles
+bool FindIntersection(const Scene &scene, const Ray &ray, HitInfo &hit);
